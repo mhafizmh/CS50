@@ -1,0 +1,50 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <math.h>
+
+// Declare variables
+
+float change;
+int coins = 0;
+int cents;
+  
+int main(void)
+{
+    // ask user for input
+    do {
+        change = get_float("Change: ");
+    }
+    while(change < 0);
+   
+    // convert change in terms of cents
+    
+    cents = round(change*100);
+    
+    // calculate how many coins return
+    
+    do
+    {
+        cents -= 25;
+        coins++;
+    } while (cents > 25);
+    
+    do 
+    {
+        cents -= 10;
+        coins ++;
+    } while (cents > 10);
+    
+    do 
+    {
+        cents -= 5;
+        coins ++;
+    } while (cents > 5);
+    
+    do 
+    {
+        cents -= 1;
+        coins ++;
+    } while (cents > 1);
+    
+    printf("Coins: %i", coins);
+}
