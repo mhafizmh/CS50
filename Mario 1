@@ -1,0 +1,45 @@
+
+
+#include <cs50.h>
+#include <stdio.h>
+ 
+//declare variables
+int height;
+int row;
+int space;
+int hash;
+
+int main(void)
+{ 
+    // Getting input from user
+   do
+   {
+       height = get_int("Height: ");
+   }
+   while( height < 1 || height > 8);
+    
+    //print rows
+    for(row = 0; row < height; row++)
+    {
+        //print lines
+        for(space = 0; space < height - row - 1; space++)
+        {
+            printf(" ");
+        }
+   
+        for(hash = 0; hash < row+1; hash ++)
+        {
+            printf("#");
+        }
+        
+        printf("  ");
+        //print left aligned pyramid
+         for(hash = 0; hash < row+1; hash ++)
+        {
+            printf("#");
+        }
+    
+        printf ("\n");
+
+    } 
+}
