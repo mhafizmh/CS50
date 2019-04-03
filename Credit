@@ -170,73 +170,89 @@ int main(void)
         {
             if (n13 == 4)
             {
-                printf("Visa\n");
+                printf("VISA\n");
             }
-        } 
-        else if (totalDigits == 16)
-        {
-            if (n16 == 4)
-            {             
-                printf("Visa \n");
-            }
-        }            
-    
-        // Check for American Express
-        if (totalDigits == 15)
-        {
-            if (ccnum / 10000000000000 >= 33 && ccnum / 10000000000000 <= 37)
+            else
             {
-                printf("American Express \n");
+                printf("INVALID13\n");
             }
         }
-    
-        // Check for MasterCard
-        if (totalDigits == 16)
-        {
-            if (ccnum / 100000000000000 >= 51 && ccnum / 100000000000000 <= 55)
-            {
-                printf("MasterCard \n");
-            } 
-            else if (ccnum / 1000000000000 >= 2221 && ccnum / 1000000000000 <= 2720)
-            {
-                printf("MasterCard \n");
-            }
-        }
-      
+        
+              
         // Check for Diners
         if (totalDigits == 14)
         {
             if (ccnum / 100000000000 == 300 || ccnum / 100000000000 == 305 || ccnum / 1000000000000 == 36 || ccnum / 1000000000000 == 38)
             {
-                printf("Diners Club \n");
-            }            
-        }
-    
-        //Check for Discover
-        if (totalDigits == 16)
-        {
-            if (ccnum / 1000000000000 == 6011 || ccnum / 100000000000000 == 65)
+                printf("DINERS\n");
+            }         
+            else
             {
-                printf("Discover \n");
+                printf("INVALID\n");
+                return 5;
             }
         }
     
-        //Check for JCB
+        
         if (totalDigits == 15)
         {
-            if (ccnum / 100000000000 == 2131 || ccnum / 100000000000 == 1800)
+            // Check for American Express
+            if (ccnum / 10000000000000 == 33 || ccnum / 10000000000000 == 37)
             {
-                printf("JCB \n");
+                printf("AMEX\n");
             }
+            //Check for JCB       
+            else if (ccnum / 100000000000 == 2131 || ccnum / 100000000000 == 1800)
+            {
+                printf("JCB\n");
+            }
+            else
+            {
+                int n = ccnum / 10000000000000;
+                printf("INVALID\n");
+               
+            }
+            
+             
+        
         }
-        else if (totalDigits == 16)
+    
+        
+        if (totalDigits == 16)
         {
-            if (ccnum / 100000000000000 == 35)
+            //Check Master Card
+            if (ccnum / 100000000000000 >= 51 && ccnum / 100000000000000 <= 55)
             {
-                printf("JCB \n");
+                printf("MASTERCARD\n");
+            } 
+            else if (ccnum / 1000000000000 >= 2221 && ccnum / 1000000000000 <= 2720)
+            {
+                printf("MASTERCARD\n");
             }
-                
-        }
+            
+            //Check Discover
+            else if (ccnum / 1000000000000 == 6011 || ccnum / 100000000000000 == 65)
+            {
+                printf("DISCOVER\n");
+            }
+            
+            //Check JCB
+            else if (ccnum / 100000000000000 == 35)
+            {
+                printf("JCB\n");
+            }           
+            
+            //Check Visa
+            else if (n16 == 4)
+            {             
+                printf("VISA\n");
+            }
+            
+            else
+            {
+                printf("INVALID\n");
+            }
+        }                    
     }
 } 
 
